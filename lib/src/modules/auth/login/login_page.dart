@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../core/ui/core_ui.dart';
-import '../../core/routes/app_routes.dart';
 import 'login_controller.dart';
 import 'widgets/form_login.dart';
 
@@ -19,7 +18,7 @@ class _LoginPageState extends State<LoginPage> with Loader, Messages {
   final controller = Get.find<LoginController>();
 
   void _formSubmit() {
-    controller.loginStatus.value = LoginStateStatus.loading;
+    controller.isLoading.isTrue ? showLoader() : hiderLoader();
     final formValid = formKey.currentState?.validate() ?? false;
     if (formValid) {
       controller.login(
@@ -27,27 +26,14 @@ class _LoginPageState extends State<LoginPage> with Loader, Messages {
         passwordEC.text,
       );
     }
-    controller.loginStatus.value = LoginStateStatus.success;
+    controller.isLoading.isFalse ? hiderLoader() : showLoader();
+    hiderLoader();
   }
 
   @override
   void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {});
     super.initState();
-    switch (controller.loginStatus.value) {
-      case LoginStateStatus.initial:
-        break;
-      case LoginStateStatus.loading:
-        showLoader();
-        break;
-      case LoginStateStatus.success:
-        hiderLoader();
-        Get.toNamed(AppRoutes.TEMPLATE_PAGE);
-        break;
-      case LoginStateStatus.error:
-        hiderLoader();
-        showError(controller.errorMessage.value!);
-        break;
-    }
   }
 
   @override

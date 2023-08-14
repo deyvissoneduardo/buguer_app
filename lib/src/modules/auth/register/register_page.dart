@@ -32,7 +32,7 @@ class _RegisterPageState extends State<RegisterPage> with Loader, Messages {
         break;
       case RegisterStateStatus.success:
         hiderLoader();
-        Get.toNamed(AppRoutes.TEMPLATE_PAGE);
+        Get.toNamed(AppRoutes.HOME_PAGE);
         break;
       case RegisterStateStatus.error:
         hiderLoader();
