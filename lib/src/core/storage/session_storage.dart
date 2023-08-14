@@ -1,6 +1,6 @@
 import 'package:burguer_app/src/core/storage/storege.dart';
 
-class SesssionStorage extends Storage {
+class SessionStorage extends Storage {
   @override
   void clean() {}
 
