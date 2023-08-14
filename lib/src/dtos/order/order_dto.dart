@@ -1,3 +1,6 @@
+import '../../models/order/order_status.dart';
+import '../../models/payment_type_model.dart';
+import '../../models/user_model.dart';
 import 'order_product_dto.dart';
 
 class OrderDto {
