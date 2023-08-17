@@ -1,6 +1,6 @@
-import 'package:burguer_app/src/models/payment_type_model.dart';
-import 'package:burguer_app/src/repositories/payment_type/payment_type_repository.dart';
-import 'package:burguer_app/src/services/payment_type/payment_type_service.dart';
+import '../../models/payment_type_model.dart';
+import '../../repositories/payment_type/payment_type_repository.dart';
+import 'payment_type_service.dart';
 
 class PaymentTypeServiceImpl implements PaymentTypeService {
   final PaymentTypeRepository paymentTypeRepository;

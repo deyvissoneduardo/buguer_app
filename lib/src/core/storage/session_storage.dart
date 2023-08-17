@@ -1,4 +1,4 @@
-import 'package:burguer_app/src/core/storage/storege.dart';
+import 'storege.dart';
 
 class SessionStorage extends Storage {
   @override

@@ -1,8 +1,8 @@
 import 'dart:typed_data';
 
-import 'package:burguer_app/src/models/product_model.dart';
-import 'package:burguer_app/src/repositories/products/products_repository.dart';
-import 'package:burguer_app/src/services/products/products_service.dart';
+import '../../models/product_model.dart';
+import '../../repositories/products/products_repository.dart';
+import 'products_service.dart';
 
 class ProductsServiceImpl implements ProductService {
   final ProductRepository productRepository;

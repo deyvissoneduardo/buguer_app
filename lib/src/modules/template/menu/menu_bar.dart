@@ -20,9 +20,7 @@ class _MenuBarState extends State<MenuBar> with HistoryBackListner {
 
   @override
   void onHistoryBack(Event event) {
-    setState(() {
-      selectedMenu.value = Menu.findByPath(Get.currentRoute);
-    });
+    selectedMenu.value = Menu.findByPath(Get.currentRoute);
   }
 
   @override
