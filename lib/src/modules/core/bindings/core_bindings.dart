@@ -15,6 +15,8 @@ import '../../auth/login/login_bindings.dart';
 import '../../auth/login/login_controller.dart';
 import '../../auth/register/register_bindings.dart';
 import '../../auth/register/register_controller.dart';
+import '../../home/home_bindings.dart';
+import '../../home/home_controller.dart';
 import '../../products/detail/product_detail_controller.dart';
 import '../../products/home/product_controller.dart';
 import '../../products/product_bindings.dart';
@@ -28,6 +30,7 @@ class CoreBindings extends Bindings {
     RegisterBindings().dependencies();
     ProductBindings().dependencies();
     SetupBindings().dependencies();
+    HomeBindings().dependencies();
 
     Get.lazyPut<Storage>(
       () => SessionStorage(),
@@ -63,5 +66,6 @@ class CoreBindings extends Bindings {
       () => ProductDetailController(Get.find<ProductService>()),
     );
     Get.lazyPut(() => SetupController());
+    Get.lazyPut(() => HomeController(Get.find()));
   }
 }

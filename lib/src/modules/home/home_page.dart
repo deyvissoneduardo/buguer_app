@@ -1,22 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-import '../../core/env/env.dart';
 import '../template/base_layout.dart';
+import 'home_controller.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
   Widget build(BuildContext context) {
+    final controller = Get.find<HomeController>();
+    controller.loadProducts();
+    print('************************************');
+    print(controller.products);
+
     return BaseLayout(
-      body: Container(
-        color: Colors.red,
-        child: Text(Env.instance.get('base_url')),
+      body: ListView.builder(
+        itemCount: controller.products.length,
+        itemBuilder: (context, index) => Container(
+          color: Colors.amber,
+          child: Text('${controller.products[index]}'),
+        ),
       ),
     );
   }

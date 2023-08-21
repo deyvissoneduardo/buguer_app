@@ -34,19 +34,16 @@ class ProductRepositoryImpl implements ProductRepository {
   Future<List<ProductModel>> finalAll(String? name) async {
     try {
       final productResult = await _dio.auth().get(
-        '/products',
-        queryParameters: {
-          if (name != null) 'name': name,
-          'enabled': true,
-        },
-      );
-
+            '/products',
+          );
+      print('111111111111111111111111111');
+      print(productResult);
       return productResult.data
           .map<ProductModel>((p) => ProductModel.fromMap(p))
           .toList();
     } on DioException catch (e, s) {
       log('Erro ao buscar produtos', error: e, stackTrace: s);
-
+      print('111111111111111111111111111 $s');
       Error.throwWithStackTrace(
         const RespositoryException(message: 'Erro ao buscar produtos'),
         s,
